@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_task/all.exports.dart';
 import 'package:flutter_task/src/core/theme/theme.provider.dart';
+import 'package:flutter_task/src/features/auth/register/screen/register.screen.dart';
 
 class PracticalTask extends StatelessWidget {
   @override
@@ -16,6 +17,7 @@ class PracticalTask extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         navigatorObservers: [routeObserver],
+        home: RegisterScreen(),
         builder: (_, child) => _ContentBuilder(child: child ?? Container()),
       );
     });

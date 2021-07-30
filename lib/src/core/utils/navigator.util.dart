@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/all.exports.dart';
+import 'package:flutter_task/src/features/auth/register/screen/register.screen.dart';
+import 'package:flutter_task/src/features/other/unknown/screen/unknown.screen.dart';
 
 /// The [RouteType] determines what [PageRoute] is used for the new route.
 ///
@@ -120,6 +122,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   var screen;
 
   switch (routeName) {
+    case RegisterScreen.route:
+      screen = RegisterScreen();
+      break;
+    default:
+      screen = UnknownScreen();
+      break;
   }
   switch (routeType) {
     case RouteType.fade:
