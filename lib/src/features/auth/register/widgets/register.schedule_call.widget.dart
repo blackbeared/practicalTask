@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_task/all.exports.dart';
+import 'package:flutter_task/src/core/support/wave_icon_container.widget.dart';
 import 'package:flutter_task/src/features/auth/register/viewmodel/register.viewmodel.dart';
 
 /// Schedule Video call for verification in registration flow.
@@ -18,18 +19,7 @@ class RegisterScheduleCallWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 50.dp,
-            height: 50.dp,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50.dp)),
-            child: Icon(
-              LineAwesomeIcons.calendar,
-              color: AppTheme.of(context).secondaryColor,
-              size: 24.dp,
-            ),
-          ),
+          AnimatedWaveIconWidget(size: 50.dp, icon: LineAwesomeIcons.calendar),
           VerticalSpace(kSpaceLarge),
           Text(context.local.scheduleCallHeader,
               style: context.headline3.white),
