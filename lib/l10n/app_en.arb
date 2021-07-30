@@ -22,5 +22,11 @@
   "upperCaseHint": "A",
   "numericCaseHint": "123",
   "specialCharactersCaseHint": "@",
+  "personalInformationHeader": "Personal Information",
+  "personalInformationDescription": "Please fill in the information below and your goal for digital saving.",
+  "goalForActivation": "Goal for activation",
+  "monthlyIncome": "Monthly Income",
+  "monthlyExpense": "Monthly Expense",
+  "chooseOptionsHint": "- Choose Option -",
   "signUpComplete": "SignUp Complete!"
 }

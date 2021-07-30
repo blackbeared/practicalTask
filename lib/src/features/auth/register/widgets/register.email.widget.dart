@@ -5,6 +5,7 @@ import 'package:flutter_task/all.exports.dart';
 import 'package:flutter_task/src/features/auth/register/other/register.email.clipper.dart';
 import 'package:flutter_task/src/features/auth/register/viewmodel/register.viewmodel.dart';
 
+/// Separated Email Input Widget for requesting Email from user.
 class RegisterEmailWidget extends StatelessWidget {
   const RegisterEmailWidget({
     Key? key,

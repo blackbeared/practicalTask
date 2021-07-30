@@ -7,6 +7,8 @@ const Size md = const Size(24, 16);
 const Size wd = const Size(36, 16);
 const Size lg = const Size(44, 20);
 
+final double kDividerHeight = 0.5.dp;
+
 const double kSpaceZero = 0;
 const double kSpaceTiny = 1;
 const double kSpaceSmall = 4;

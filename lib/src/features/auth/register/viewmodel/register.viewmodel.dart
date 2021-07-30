@@ -5,12 +5,19 @@ class RegisterViewModel extends ChangeNotifier {
   // Input Controllers
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+  final activationGoalController = TextEditingController();
+  final monthlyIncomeController = TextEditingController();
+  final monthlyExpenseController = TextEditingController();
 
   // Keys
   final emailFormFieldKey = GlobalKey<FormFieldState>();
   final passwordFormFieldKey = GlobalKey<FormFieldState>();
+  final activationGoalFormFieldKey = GlobalKey<FormFieldState>();
+  final monthlyIncomeFormFieldKey = GlobalKey<FormFieldState>();
+  final monthlyExpenseFormFieldKey = GlobalKey<FormFieldState>();
   final submitEmailKey = GlobalKey<State>();
   final submitPasswordKey = GlobalKey<State>();
+  final submitPersonalInfoKey = GlobalKey<State>();
 
   // Focuses
   final FocusNode focusEmail = FocusNode();
@@ -25,6 +32,12 @@ class RegisterViewModel extends ChangeNotifier {
 
   String get password => passwordTextController.text;
 
+  String get activationGoal => activationGoalController.text;
+
+  String get monthlyIncome => monthlyIncomeController.text;
+
+  String get monthlyExpense => monthlyExpenseController.text;
+
   // Page Controller
   final PageController pageController = PageController(
     initialPage: 0,
@@ -36,7 +49,6 @@ class RegisterViewModel extends ChangeNotifier {
   bool get isUpperCase => validateUppercase(password);
 
   bool get isNumeric => validateNumber(password);
-
   bool get isSpecialSymbol => validateSpecialSymbol(password);
 
   get onSubmitPressed => !isEnableSubmitButton() ? null : performNextAction;
@@ -65,6 +77,9 @@ class RegisterViewModel extends ChangeNotifier {
   RegisterViewModel() {
     emailTextController.addListener(textControllerListener);
     passwordTextController.addListener(textControllerListener);
+    activationGoalController.addListener(textControllerListener);
+    monthlyIncomeController.addListener(textControllerListener);
+    monthlyExpenseController.addListener(textControllerListener);
   }
 
   // Utility functions
@@ -79,13 +94,17 @@ class RegisterViewModel extends ChangeNotifier {
   bool isEnableSubmitButton() {
     final bool validCase0 = email.isNotEmpty && validateEmail(email);
     final bool validCase1 = validCase0 && validatePassword(password);
+    final bool validCase2 = validCase1 &&
+        isNotEmpty(activationGoal) &&
+        isNotEmpty(monthlyExpense) &&
+        isNotEmpty(monthlyIncome);
     switch (currentStep) {
       case 0:
         return validCase0;
       case 1:
         return validCase1;
       case 2:
-        return false;
+        return validCase2;
       case 3:
         return false;
     }

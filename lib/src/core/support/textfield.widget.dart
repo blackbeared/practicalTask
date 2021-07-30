@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_task/all.exports.dart';
 
+/// Custom build [TextfieldX] Widget for Easier maintenance and modification in whole App.
+/// Supports multiple widget facilities and also works as select field based on configuration.
+/// Todo : Add support for passing listOptions when set to DROPDOWN and integrate picker dialog internally.
 class TextfieldX extends StatefulWidget {
   final Key key;
   final TextFieldOption textOption;
@@ -45,10 +48,6 @@ class _TextfieldXState extends State<TextfieldX> {
     obscureText = widget.textOption.isSecureTextField ?? false;
   }
 
-  @override
-  void didUpdateWidget(TextfieldX oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,6 +164,7 @@ class _TextfieldXState extends State<TextfieldX> {
   }
 }
 
+/// Text field configuration to be passed to customise [TextFieldX] class
 class TextFieldOption {
   String? text = "";
   String? labelText;

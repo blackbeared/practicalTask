@@ -5,7 +5,7 @@ import 'package:flutter_task/all.exports.dart';
 import 'package:flutter_task/src/features/auth/register/viewmodel/register.viewmodel.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/password.complexity.widget.dart';
 
-// Create Password Page for Registration flow
+// Create Password Page for Registration flow.
 class RegisterPasswordWidget extends StatelessWidget {
   const RegisterPasswordWidget({
     Key? key,

@@ -3,10 +3,11 @@ import 'package:flutter_task/all.exports.dart';
 import 'package:flutter_task/src/features/auth/register/viewmodel/register.viewmodel.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.email.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.password.widget.dart';
+import 'package:flutter_task/src/features/auth/register/widgets/register.personalinfo.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.toolbar.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/steps_progress.widget.dart';
 
-// Initial Route [RegisterScreen] is for new user registration
+/// Initial Route [RegisterScreen] is for new user registration
 class RegisterScreen extends StatelessWidget {
   static const String route = 'register';
 
@@ -69,6 +70,7 @@ class RegisterScreenBody extends StatelessWidget {
                     children: [
                       RegisterEmailWidget(),
                       RegisterPasswordWidget(),
+                      RegisterPersonalInfoWidget(),
                     ],
                   ),
                 ),
