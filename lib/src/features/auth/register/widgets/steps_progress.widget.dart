@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_task/all.exports.dart';
 
+/* StepProgressView class is useful for showing steps in any process
+*  Configure step progress view design as per your needs using various constructor parameters
+*  curStep : Indicates Current step for stepper widget
+*  steps : total steps
+*  style : lineColor, activeColor, inactiveColor, lineWidth
+* */
 class StepProgressView extends StatelessWidget {
   final double width;
   final int curStep;
@@ -37,6 +43,7 @@ class StepProgressView extends StatelessWidget {
     for (int i = 0; i < steps; i++) {
       var circleColor = (curStep > i) ? activeColor : inactiveColor;
       list.add(
+        // Animated container for smooth color change animations
         AnimatedContainer(
           duration: kTabScrollDuration,
           width: 50.dp,
@@ -57,7 +64,7 @@ class StepProgressView extends StatelessWidget {
         ),
       );
 
-      //line between icons
+      // Added Line between steps
       if (i != steps - 1) {
         list.add(Expanded(
             child: Container(

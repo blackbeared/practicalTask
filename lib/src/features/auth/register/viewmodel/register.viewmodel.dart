@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/all.exports.dart';
 
 class RegisterViewModel extends ChangeNotifier {
+  // Input Controllers
   final emailTextController = TextEditingController();
-  final emailFormFieldKey = GlobalKey<FormFieldState>();
 
+  // Keys
+  final emailFormFieldKey = GlobalKey<FormFieldState>();
   final submitEmailKey = GlobalKey<State>();
 
   // Focuses
@@ -36,5 +38,7 @@ class RegisterViewModel extends ChangeNotifier {
     return email.isNotEmpty && validateEmail(email);
   }
 
-  Future performNextAction() async {}
+  Future performNextAction() async {
+    currentStep = currentStep + 1;
+  }
 }

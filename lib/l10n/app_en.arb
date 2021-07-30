@@ -1,4 +1,9 @@
 {
   "createAccount": "Create Account",
-  "retry": "Retry"
+  "retry": "Retry",
+  "signUpHeader1": "Welcome to \nGIN",
+  "signUpHeader2": " Finance",
+  "signUpDescription": "Welcome to The Bank of The Future. \nManage and track your accounts on the go.",
+  "email": "Email",
+  "next": "Next"
 }

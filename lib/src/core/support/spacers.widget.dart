@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/all.exports.dart';
 
+// Screen sizes and densities differ with devices
+// Use VerticalSpace and HorizontalSpace with screen.width
+// and height percentages to maintain UI across the devices.
 class VerticalSpace extends StatelessWidget {
   final num space;
 
