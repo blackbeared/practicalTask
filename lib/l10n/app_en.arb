@@ -5,5 +5,22 @@
   "signUpHeader2": " Finance",
   "signUpDescription": "Welcome to The Bank of The Future. \nManage and track your accounts on the go.",
   "email": "Email",
-  "next": "Next"
+  "next": "Next",
+  "password": "Password",
+  "createPasswordHeader": "Create Password",
+  "createPasswordDescription": "Password will be used to login to account.",
+  "passwordComplexity": "Complexity: ",
+  "veryWeak": "Very Weak",
+  "weak": "Weak",
+  "medium": "Medium",
+  "secure": "Secure",
+  "lowerCase": "Lowercase",
+  "upperCase": "Uppercase",
+  "numberCase": "Numeric",
+  "specialCharacterCase": "Characters",
+  "lowerCaseHint": "a",
+  "upperCaseHint": "A",
+  "numericCaseHint": "123",
+  "specialCharactersCaseHint": "@",
+  "signUpComplete": "SignUp Complete!"
 }

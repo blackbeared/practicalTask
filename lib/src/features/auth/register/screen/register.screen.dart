@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/all.exports.dart';
 import 'package:flutter_task/src/features/auth/register/viewmodel/register.viewmodel.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.email.widget.dart';
+import 'package:flutter_task/src/features/auth/register/widgets/register.password.widget.dart';
+import 'package:flutter_task/src/features/auth/register/widgets/register.toolbar.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/steps_progress.widget.dart';
 
 // Initial Route [RegisterScreen] is for new user registration
@@ -35,24 +37,42 @@ class RegisterScreenBody extends StatelessWidget {
       create: (_) => RegisterViewModel(),
       builder: (context, child) {
         // Watch Register ViewModel for changes
-        final loginModel = context.watch<RegisterViewModel>();
+        final registerModel = context.watch<RegisterViewModel>();
+
+        // Keep current page synced with stepper using currentStep variable
+        if (registerModel.pageController.hasClients)
+          registerModel.pageController.animateToPage(registerModel.currentStep,
+              duration: kTabScrollDuration, curve: Curves.decelerate);
+
         return Container(
           width: context.width,
+          height: context.height - 40.dp,
+          // -40 to remove misc. status bar height Todo: Fix with calculated statusBar size
           // -40 to remove misc. status bar height
           // Todo: Fix with calculated statusBar size
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              VerticalSpace(kSpaceBig),
+              RegisterToolbarWidget(),
               StepProgressView(
-                curStep: loginModel.currentStep,
+                curStep: registerModel.currentStep,
                 width: context.width,
                 activeColor: Colors.green,
                 inactiveColor: Colors.white,
-                steps: loginModel.steps,
+                steps: registerModel.steps,
               ),
-              VerticalSpace(kSpaceBig),
-              Expanded(child: RegisterEmailWidget())
+              Expanded(
+                child: Container(
+                  child: PageView(
+                    physics: NeverScrollableScrollPhysics(),
+                    controller: registerModel.pageController,
+                    children: [
+                      RegisterEmailWidget(),
+                      RegisterPasswordWidget(),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         );

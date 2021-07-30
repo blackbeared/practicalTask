@@ -12,7 +12,7 @@ class RegisterEmailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final loginModel = context.watch<RegisterViewModel>();
+    final registerModel = context.watch<RegisterViewModel>();
     return ClipPath(
       clipper: RegisterBackgroundClipper(100),
       child: Container(
@@ -50,9 +50,9 @@ class RegisterEmailWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(kCardRadiusSmall),
                   boxShadow: getDefaultBoxShadow(elevation: 0, blurr: 20)),
               child: TextfieldX(
-                key: loginModel.emailFormFieldKey,
+                key: registerModel.emailFormFieldKey,
                 autoCorrect: false,
-                focusNode: loginModel.focusEmail,
+                focusNode: registerModel.focusEmail,
                 filled: true,
                 fillColor: AppTheme.of(context).complimentry20,
                 showUnderLine: false,
@@ -64,18 +64,18 @@ class RegisterEmailWidget extends StatelessWidget {
                   hintText: context.local.email,
                   autofillHints: const [AutofillHints.email],
                   keyboardType: TextInputType.emailAddress,
-                  inputController: loginModel.emailTextController,
+                  inputController: registerModel.emailTextController,
                   formatter: [
                     FilteringTextInputFormatter.deny(RegExp(RegexForEmoji))
                   ],
                 ),
-                onNextPress: loginModel.setNextFocus,
+                onNextPress: registerModel.setNextFocus,
               ),
             ),
             Spacer(),
             ButtonX(
-              key: loginModel.submitEmailKey,
-              onTap: loginModel.onSubmitPressed,
+              key: registerModel.submitEmailKey,
+              onTap: registerModel.onSubmitPressed,
               text: context.local.next,
               elevation: 1,
               fitWidth: true,
