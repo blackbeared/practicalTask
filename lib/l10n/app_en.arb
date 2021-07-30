@@ -28,5 +28,11 @@
   "monthlyIncome": "Monthly Income",
   "monthlyExpense": "Monthly Expense",
   "chooseOptionsHint": "- Choose Option -",
-  "signUpComplete": "SignUp Complete!"
+  "signUpComplete": "SignUp Complete!",
+  "scheduleCallHeader": "Schedule Video Call",
+  "scheduleCallDescription": "Choose the date and time that you preferred. we will send a link via email to make a video call on the scheduled date and time.",
+  "scheduleDate": "Date",
+  "scheduleDateHint": "- Choose Date -",
+  "scheduleTime": "Time",
+  "scheduleTimeHint": "- Choose Time -"
 }

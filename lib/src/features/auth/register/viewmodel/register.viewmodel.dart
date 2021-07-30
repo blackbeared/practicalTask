@@ -8,20 +8,31 @@ class RegisterViewModel extends ChangeNotifier {
   final activationGoalController = TextEditingController();
   final monthlyIncomeController = TextEditingController();
   final monthlyExpenseController = TextEditingController();
+  final dateController = TextEditingController();
+  final timeController = TextEditingController();
 
-  // Keys
+  // Form Field Keys
   final emailFormFieldKey = GlobalKey<FormFieldState>();
   final passwordFormFieldKey = GlobalKey<FormFieldState>();
   final activationGoalFormFieldKey = GlobalKey<FormFieldState>();
   final monthlyIncomeFormFieldKey = GlobalKey<FormFieldState>();
   final monthlyExpenseFormFieldKey = GlobalKey<FormFieldState>();
+  final dateFormFieldKey = GlobalKey<FormFieldState>();
+  final timeFormFieldKey = GlobalKey<FormFieldState>();
+
+  // Button keys
   final submitEmailKey = GlobalKey<State>();
   final submitPasswordKey = GlobalKey<State>();
   final submitPersonalInfoKey = GlobalKey<State>();
+  final submitDateTimeKey = GlobalKey<State>();
 
   // Focuses
   final FocusNode focusEmail = FocusNode();
   final FocusNode focusPassword = FocusNode();
+
+  DateTime scheduleDate = DateTime.now();
+
+  TimeOfDay get timeOfDay => TimeOfDay.fromDateTime(scheduleDate);
 
   // Steps Progress
   int currentStep = 0;
@@ -37,6 +48,10 @@ class RegisterViewModel extends ChangeNotifier {
   String get monthlyIncome => monthlyIncomeController.text;
 
   String get monthlyExpense => monthlyExpenseController.text;
+
+  String get date => dateController.text;
+
+  String get time => timeController.text;
 
   // Page Controller
   final PageController pageController = PageController(
@@ -80,6 +95,8 @@ class RegisterViewModel extends ChangeNotifier {
     activationGoalController.addListener(textControllerListener);
     monthlyIncomeController.addListener(textControllerListener);
     monthlyExpenseController.addListener(textControllerListener);
+    dateController.addListener(textControllerListener);
+    timeController.addListener(textControllerListener);
   }
 
   // Utility functions
@@ -98,6 +115,7 @@ class RegisterViewModel extends ChangeNotifier {
         isNotEmpty(activationGoal) &&
         isNotEmpty(monthlyExpense) &&
         isNotEmpty(monthlyIncome);
+    final bool validCase3 = validCase2 && isNotEmpty(date) && isNotEmpty(time);
     switch (currentStep) {
       case 0:
         return validCase0;
@@ -106,7 +124,7 @@ class RegisterViewModel extends ChangeNotifier {
       case 2:
         return validCase2;
       case 3:
-        return false;
+        return validCase3;
     }
     return false;
   }
@@ -119,8 +137,8 @@ class RegisterViewModel extends ChangeNotifier {
         currentStep = currentStep + 1;
         break;
       case 3:
-        submitEmailKey.currentContext!.showMessage(
-            submitPasswordKey.currentContext!.local.signUpComplete,
+        submitDateTimeKey.currentContext!.showMessage(
+            submitDateTimeKey.currentContext!.local.signUpComplete,
             mode: DisplayMode.SUCCESS);
         break;
     }

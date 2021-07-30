@@ -4,6 +4,7 @@ import 'package:flutter_task/src/features/auth/register/viewmodel/register.viewm
 import 'package:flutter_task/src/features/auth/register/widgets/register.email.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.password.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.personalinfo.widget.dart';
+import 'package:flutter_task/src/features/auth/register/widgets/register.schedule_call.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/register.toolbar.widget.dart';
 import 'package:flutter_task/src/features/auth/register/widgets/steps_progress.widget.dart';
 
@@ -71,6 +72,7 @@ class RegisterScreenBody extends StatelessWidget {
                       RegisterEmailWidget(),
                       RegisterPasswordWidget(),
                       RegisterPersonalInfoWidget(),
+                      RegisterScheduleCallWidget(),
                     ],
                   ),
                 ),
