@@ -60,6 +60,7 @@ class _ButtonXBaseState extends State<_ButtonXBase> {
 /// widget with more control.
 ///
 /// Either [startIcon], [iconBuilder] or [text] must not be `null`.
+//ignore: must_be_immutable
 class ButtonX extends StatelessWidget {
   final Key key;
 

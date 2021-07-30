@@ -196,8 +196,6 @@ class AppTheme {
     Colors.redAccent,
   ];
 
-  static const List<String> _fontFamilyFallback = ['NotoSans'];
-
   Color get foregroundColor =>
       brightness == Brightness.light ? Colors.black : Colors.white;
 

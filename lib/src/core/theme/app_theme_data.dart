@@ -19,17 +19,6 @@ class AppThemeData {
   final int statusBarColor;
   final int navBarColor;
 
-  @override
-  List<Object?> get props => [
-        name,
-        backgroundColors,
-        primaryColor,
-        secondaryColor,
-        cardColor,
-        statusBarColor,
-        navBarColor,
-      ];
-
   AppThemeData fromJson(Map<String, dynamic> json) {
     return AppThemeData(
       name: json['name'] as String,

@@ -104,6 +104,7 @@ class DialogX extends StatelessWidget {
 /// [icon].
 ///
 /// Either [text] or [icon] must not be `null`.
+//ignore: must_be_immutable
 class DialogAction<T> extends StatelessWidget {
   Key key;
 

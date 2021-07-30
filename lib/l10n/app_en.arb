@@ -34,5 +34,7 @@
   "scheduleDate": "Date",
   "scheduleDateHint": "- Choose Date -",
   "scheduleTime": "Time",
-  "scheduleTimeHint": "- Choose Time -"
+  "scheduleTimeHint": "- Choose Time -",
+  "unknownRoute": "Unknown Route",
+  "unknownRouteDescription": "This screen is not found or you are unauthorised to view this."
 }
