@@ -8,13 +8,22 @@ import 'package:flutter_task/src/features/auth/register/widgets/steps_progress.w
 class RegisterScreen extends StatelessWidget {
   static const String route = 'register';
 
+  // Hack to maintain Scroll Position while keyboard is active
+  // Ref : https://stackoverflow.com/questions/53586892/flutter-textformfield-hidden-by-keyboard
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.of(context).backgroundColors.first,
-      body: SafeArea(
-          child:
-              RegisterScreenBody()), // SafeArea wrapper for handling status bar and navigation bar spacing
+      body: SingleChildScrollView(
+          physics: ClampingScrollPhysics(),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: context.width,
+              minHeight: context.height,
+            ),
+            child:
+                IntrinsicHeight(child: SafeArea(child: RegisterScreenBody())),
+          )), // SafeArea wrapper for handling status bar and navigation bar spacing
     );
   }
 }
